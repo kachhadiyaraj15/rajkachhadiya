@@ -1,0 +1,4 @@
+# _redirects intentionally empty.
+# Clean URL routing is handled by static route aliases created in prepare-deploy.js
+# (dist/blog/index.html, dist/about/index.html, dist/blog-post/{id}/index.html, etc.)
+# Adding rules here conflicts with Cloudflare Pretty URLs and causes redirect loops.
