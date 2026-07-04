@@ -33,7 +33,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: karam-portfolio-template # Update this if your Cloudflare Pages project name is different
+          projectName: rajkachhadiya
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: master
