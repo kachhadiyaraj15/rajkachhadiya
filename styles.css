@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=VT323&display=swap');
+
 :root,
 [data-theme="light"] {
     --bg-primary: #f5efe4;
@@ -73,6 +75,40 @@
     --shadow-sm: 0 18px 40px rgba(0, 0, 0, 0.28);
     --shadow-md: 0 30px 76px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 48px 120px rgba(0, 0, 0, 0.54);
+}
+
+[data-theme="retro"] {
+    --bg-primary: #0a0e0a;
+    --bg-secondary: rgba(15, 20, 16, 0.82);
+    --bg-tertiary: #1c2620;
+    --surface-strong: rgba(15, 20, 16, 0.94);
+    --surface-muted: rgba(10, 14, 10, 0.9);
+    --surface-elevated: rgba(15, 20, 16, 0.96);
+    --surface-overlay: rgba(10, 14, 10, 0.84);
+    --surface-sheen: rgba(118, 185, 0, 0.05);
+    --header-bg: rgba(10, 14, 10, 0.84);
+    --text-primary: #c8d4c8;
+    --text-secondary: #6f7a6f;
+    --text-tertiary: #4a7300;
+    --accent-primary: #76b900;
+    --accent-secondary: #a4e234;
+    --accent-strong: #e6f2e6;
+    --border-color: #1c2620;
+    --line-color: #1c2620;
+    --panel-edge: rgba(118, 185, 0, 0.1);
+    --link-color: #76b900;
+    --link-hover: #a4e234;
+    --code-bg: #0f1410;
+    --overlay-scrim: rgba(10, 14, 10, 0.8);
+    --focus-ring: rgba(118, 185, 0, 0.35);
+    --focus-ring-strong: rgba(118, 185, 0, 0.6);
+    --interactive-pressed: rgba(118, 185, 0, 0.2);
+    --shadow-sm: 0 0 8px rgba(118, 185, 0, 0.12);
+    --shadow-md: 0 0 16px rgba(118, 185, 0, 0.16);
+    --shadow-lg: 0 0 26px rgba(118, 185, 0, 0.2);
+    --font-display: "VT323", "Courier New", monospace;
+    --font-body: "JetBrains Mono", ui-monospace, monospace;
+    --font-mono: "VT323", "Courier New", monospace;
 }
 
 * {
@@ -281,8 +317,9 @@ select {
     box-shadow: 0 18px 42px rgba(38, 28, 17, 0.14);
 }
 
-[data-theme="dark"] .page-projects .header {
-    background: rgba(16, 22, 27, 0.92);
+[data-theme="dark"] .page-projects .header,
+[data-theme="retro"] .page-projects .header {
+    background: var(--header-bg);
     box-shadow: 0 20px 46px rgba(0, 0, 0, 0.32);
 }
 
@@ -1120,10 +1157,9 @@ select {
 
 .home-name {
     font-family: var(--font-body);
-    font-size: clamp(3.35rem, 7.4vw, 5.1rem);
+    font-size: clamp(2.35rem, 6vw, 4.1rem);
     font-weight: 700;
-    letter-spacing: -0.07em;
-    max-width: 7.5ch;
+    letter-spacing: -0.05em;
     text-shadow: 0 10px 22px rgba(15, 47, 52, 0.08);
 }
 
@@ -1223,11 +1259,12 @@ select {
     padding: 0.82rem 0.95rem;
     color: var(--text-primary);
     background:
-        linear-gradient(150deg, rgba(255, 255, 255, 0.18) 0%, transparent 60%),
+        linear-gradient(150deg, var(--surface-sheen) 0%, transparent 60%),
         var(--surface-overlay);
+    backdrop-filter: blur(12px);
     box-shadow:
         inset 2px 0 0 var(--social-accent),
-        0 8px 20px rgba(38, 28, 17, 0.06);
+        var(--shadow-sm);
     transition:
         transform var(--transition-fast),
         box-shadow var(--transition-fast),
@@ -1265,11 +1302,12 @@ select {
     border-radius: 15px;
     border: 1px solid var(--social-border);
     background:
-        radial-gradient(circle at 28% 26%, rgba(255, 255, 255, 0.82), transparent 45%),
-        linear-gradient(145deg, var(--social-tint), rgba(255, 255, 255, 0.06));
+        radial-gradient(circle at 28% 26%, var(--surface-sheen), transparent 50%),
+        linear-gradient(145deg, var(--social-tint), transparent);
+    backdrop-filter: blur(8px);
     color: var(--social-accent);
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        inset 0 1px 0 var(--panel-edge),
         0 6px 16px var(--social-glow);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
@@ -1309,8 +1347,8 @@ select {
     display: inline-grid;
     place-items: center;
     border-radius: 999px;
-    border: 1px solid rgba(15, 107, 104, 0.12);
-    background: rgba(255, 255, 255, 0.42);
+    border: 1px solid var(--social-border);
+    background: var(--surface-sheen);
     color: var(--social-accent);
     font-size: 0.92rem;
     line-height: 1;
@@ -1323,7 +1361,7 @@ select {
     border-color: var(--social-border);
     box-shadow:
         inset 2px 0 0 var(--social-accent),
-        0 14px 28px rgba(38, 28, 17, 0.1),
+        var(--shadow-md),
         0 18px 32px var(--social-glow);
 }
 
@@ -1332,7 +1370,7 @@ select {
     transform: translateY(-1px) scale(1.03);
     border-color: var(--social-accent);
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        inset 0 1px 0 var(--panel-edge),
         0 10px 22px var(--social-glow);
 }
 
@@ -1345,7 +1383,8 @@ select {
 .about-social-link:hover .social-arrow {
     transform: translate(2px, -2px);
     border-color: var(--social-border);
-    background: rgba(255, 255, 255, 0.62);
+    background: var(--surface-sheen);
+    backdrop-filter: blur(4px);
 }
 
 .social-link--twitter {
@@ -1402,6 +1441,15 @@ select {
     --social-tint: rgba(213, 218, 224, 0.11);
     --social-border: rgba(213, 218, 224, 0.2);
     --social-glow: rgba(213, 218, 224, 0.15);
+}
+
+[data-theme="retro"] .home-social-btn,
+[data-theme="retro"] .about-social-link,
+[data-theme="retro"] [class*="social-link--"] {
+    --social-accent: var(--accent-primary);
+    --social-tint: rgba(118, 185, 0, 0.12);
+    --social-border: rgba(118, 185, 0, 0.22);
+    --social-glow: rgba(118, 185, 0, 0.18);
 }
 
 .social-icon {
@@ -2458,10 +2506,9 @@ select {
 
 .about-name {
     font-family: var(--font-body);
-    font-size: clamp(2.95rem, 5.6vw, 4.35rem);
+    font-size: clamp(1.95rem, 4.6vw, 3.35rem);
     font-weight: 700;
-    letter-spacing: -0.065em;
-    max-width: 8ch;
+    letter-spacing: -0.05em;
     text-shadow: 0 10px 22px rgba(15, 47, 52, 0.08);
 }
 
@@ -3306,7 +3353,9 @@ select {
 }
 
 [data-theme="dark"] .header,
-[data-theme="dark"] .page-projects .header {
+[data-theme="dark"] .page-projects .header,
+[data-theme="retro"] .header,
+[data-theme="retro"] .page-projects .header {
     box-shadow:
         0 22px 54px rgba(0, 0, 0, 0.32),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
@@ -4543,5 +4592,100 @@ select {
     .scroll-top-btn {
         right: 10px;
         bottom: 10px;
+    }
+}
+
+/* ========================================
+   Retro Theme Specific Overrides & Animations
+   ======================================== */
+
+[data-theme="retro"] a:hover,
+[data-theme="retro"] button:hover,
+[data-theme="retro"] .theme-toggle:hover {
+    animation: crt-flicker 1.6s infinite steps(1, end);
+    text-shadow: 0 0 4px rgba(118, 185, 0, 0.6);
+}
+
+[data-theme="retro"] img {
+    filter: brightness(0.87) contrast(1.12) sepia(0.15) saturate(1.05) blur(0.6px);
+    box-shadow:
+        0 0 0 6px #101511,
+        0 0 0 8px #232b24,
+        0 0 0 9px #0c0f0c,
+        0 6px 24px rgba(0, 0, 0, 0.5),
+        0 0 26px rgba(118, 185, 0, 0.12);
+}
+
+[data-theme="retro"] :is(p, figure, div):has(> img) {
+    position: relative;
+    line-height: 0;
+}
+
+[data-theme="retro"] :is(p, figure, div):has(> img)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-sm);
+    pointer-events: none;
+    background: #d9eec6;
+    mix-blend-mode: multiply;
+}
+
+[data-theme="retro"] :is(p, figure, div):has(> img)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-sm);
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 90% 45% at 50% -12%, rgba(255, 255, 255, 0.16), transparent 55%),
+        radial-gradient(ellipse 70% 60% at 50% 42%, rgba(255, 255, 255, 0.12), transparent 65%),
+        radial-gradient(ellipse 112% 102% at center, transparent 56%, rgba(0, 0, 0, 0.32) 82%, rgba(0, 0, 0, 0.58) 100%),
+        linear-gradient(rgba(118, 185, 0, 0.05), rgba(118, 185, 0, 0.05)),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 60, 60, 0.08) 0, rgba(255, 60, 60, 0.08) 1px,
+            rgba(60, 255, 60, 0.06) 1px, rgba(60, 255, 60, 0.06) 2px,
+            rgba(60, 60, 255, 0.08) 2px, rgba(60, 60, 255, 0.08) 3px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0, transparent 2px,
+            rgba(0, 0, 0, 0.16) 2px, rgba(0, 0, 0, 0.16) 4px
+        );
+}
+
+[data-theme="retro"] pre,
+[data-theme="retro"] code {
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        transparent 2px,
+        rgba(118, 185, 0, 0.09) 2px,
+        rgba(118, 185, 0, 0.09) 3px
+    );
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.55), inset 0 0 8px rgba(118, 185, 0, 0.08);
+}
+
+@keyframes crt-flicker {
+    0%, 18%, 22%, 62%, 64%, 78%, 82%, 100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+    20% {
+        opacity: 0.78;
+        filter: brightness(0.85);
+    }
+    63% {
+        opacity: 0.55;
+        filter: brightness(0.7);
+    }
+    80% {
+        opacity: 0.88;
+        filter: brightness(0.92);
+    }
+    81% {
+        opacity: 1;
+        filter: brightness(1.15);
     }
 }

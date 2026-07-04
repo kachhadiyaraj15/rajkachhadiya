@@ -1,15 +1,15 @@
 ---
-name: Karam
+name: Raj Kachhadiya
 tagline: Product-minded software engineer
 location:
-email: karam.demo@example.com
-email_label: Test About Email
-twitter: https://x.com/karam_demo
-twitter_label: Test About X
-github: 
-github_label:
-linkedin: 
-linkedin_label:
+email: raj.kachhadiya15@gmail.com
+email_label: Raj Kachhadiya
+twitter: https://x.com/kachhadiyaraj15
+twitter_label: kachhadiyaraj15
+github: https://github.com/kachhadiyaraj15
+github_label: kachhadiyaraj15
+linkedin: https://www.linkedin.com/in/rajkachhadiya/
+linkedin_label: Raj Kachhadiya
 website: 
 website_label:
 focus: [Frontend systems, Product engineering, Content workflows]

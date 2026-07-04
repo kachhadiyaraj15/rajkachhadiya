@@ -1310,7 +1310,8 @@ function renderMermaidFallbacks(root, nodes = null) {
 }
 
 function enhanceMermaidDiagrams(root) {
-    const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'neutral';
+    const themeAttr = document.documentElement.getAttribute('data-theme');
+    const currentTheme = (themeAttr === 'dark' || themeAttr === 'retro') ? 'dark' : 'neutral';
     const nodes = Array.from(root.querySelectorAll('.prose .mermaid'));
     if (nodes.length === 0) return;
 
@@ -1430,7 +1431,8 @@ class ThemeManager {
         this.THEME_KEY = 'portfolio-theme';
         this.THEMES = {
             DARK: 'dark',
-            LIGHT: 'light'
+            LIGHT: 'light',
+            RETRO: 'retro'
         };
         this.init();
     }
@@ -1453,7 +1455,10 @@ class ThemeManager {
         // Swap the highlight.js stylesheet to match the new theme
         const hljsLink = document.getElementById('hljs-theme');
         if (hljsLink) {
-            const hljsTheme = theme === this.THEMES.DARK ? 'github-dark' : 'github';
+            let hljsTheme = 'github';
+            if (theme === this.THEMES.DARK || theme === this.THEMES.RETRO) {
+                hljsTheme = 'github-dark';
+            }
             hljsLink.href = `https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/styles/${hljsTheme}.min.css`;
         }
         enhanceRichContent(document);
@@ -1461,7 +1466,10 @@ class ThemeManager {
 
     toggleTheme() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === this.THEMES.DARK ? this.THEMES.LIGHT : this.THEMES.DARK;
+        let newTheme;
+        if (currentTheme === this.THEMES.LIGHT) newTheme = this.THEMES.DARK;
+        else if (currentTheme === this.THEMES.DARK) newTheme = this.THEMES.RETRO;
+        else newTheme = this.THEMES.LIGHT;
         this.setTheme(newTheme);
     }
 
@@ -1477,14 +1485,26 @@ class ThemeManager {
         if (toggleBtn) {
             const icon = toggleBtn.querySelector('.theme-icon');
             const label = toggleBtn.querySelector('.theme-label');
-            const isDark = theme === this.THEMES.DARK;
+            let iconText = '◐';
+            let labelText = 'Dark mode';
+            let actionLabel = 'Switch to dark mode';
+            
+            if (theme === this.THEMES.DARK) {
+                iconText = '🖥️';
+                labelText = 'Retro mode';
+                actionLabel = 'Switch to retro mode';
+            } else if (theme === this.THEMES.RETRO) {
+                iconText = '☀';
+                labelText = 'Light mode';
+                actionLabel = 'Switch to light mode';
+            }
+
             if (icon) {
-                icon.textContent = isDark ? '☀' : '◐';
+                icon.textContent = iconText;
             }
             if (label) {
-                label.textContent = isDark ? 'Light mode' : 'Dark mode';
+                label.textContent = labelText;
             }
-            const actionLabel = isDark ? 'Switch to light mode' : 'Switch to dark mode';
             toggleBtn.setAttribute('aria-label', actionLabel);
             toggleBtn.setAttribute('title', actionLabel);
         }
