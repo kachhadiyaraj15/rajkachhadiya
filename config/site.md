@@ -16,7 +16,7 @@ enable_blog: true
 enable_playlists: true
 enable_experience: true
 
-navigation: home|Home|index.html, experience|Experience|experience.html, projects|Projects|projects.html, blog|Blog|blog.html, playlists|Playlists|playlists.html, about|About|about.html
+navigation: home|Home|index.html, experience|Experience|experience.html, projects|Projects|projects.html, blog|Blogs|blog.html, playlists|Playlists|playlists.html, about|About|about.html
 
 feature_theme_toggle: true
 feature_blog_filters: true
