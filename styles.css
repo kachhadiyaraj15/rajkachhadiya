@@ -4765,10 +4765,10 @@ select {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: calc(0.78rem - 1px) calc(1.05rem - 1px);
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
-    margin: 1px;
+    padding: calc(0.78rem - 2px) calc(1.05rem - 2px);
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    margin: 2px;
     border-radius: 999px;
     background: var(--surface-strong);
     color: var(--text-primary);
