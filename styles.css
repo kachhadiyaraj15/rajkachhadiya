@@ -433,25 +433,74 @@ select {
     transform: scaleX(1);
 }
 
-.theme-toggle {
-    display: inline-flex;
+.theme-switcher-pill {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.55rem;
-    min-width: 9.5rem;
     border: 1px solid var(--border-color);
     border-radius: 999px;
-    padding: 0.7rem 1rem;
     background: var(--surface-strong);
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+    padding: 0.35rem 0.4rem;
+    min-width: 145px;
+    height: 44px;
+    flex-shrink: 0;
 }
 
-.theme-toggle:hover {
-    transform: translateY(-1px);
-    border-color: var(--line-color);
-    box-shadow: var(--shadow-sm);
+.theme-active-display {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 6; /* 60% */
+    padding-right: 0.5rem;
+    padding-left: 0.2rem;
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.theme-icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: color-mix(in srgb, var(--text-primary) 8%, var(--surface-strong));
+    border-radius: 50%;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.theme-active-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.theme-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 4; /* 40% */
+    padding-left: 0.25rem;
+}
+
+.theme-option-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.theme-option-btn:hover {
+    background: color-mix(in srgb, var(--text-primary) 8%, var(--surface-strong));
+    color: var(--text-primary);
 }
 
 .source-code-link {
@@ -3375,7 +3424,7 @@ select {
         0 12px 28px rgba(0, 0, 0, 0.24);
 }
 
-[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .theme-switcher-pill,
 [data-theme="dark"] .filter-toggle-btn,
 [data-theme="dark"] .project-link,
 [data-theme="dark"] .project-detail-link,
@@ -3396,7 +3445,7 @@ select {
         0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
-[data-theme="dark"] .theme-toggle:hover,
+[data-theme="dark"] .theme-switcher-pill:hover,
 [data-theme="dark"] .filter-toggle-btn:hover,
 [data-theme="dark"] .project-link:hover,
 [data-theme="dark"] .project-detail-link:hover,
@@ -3703,25 +3752,18 @@ select {
     height: 20px;
 }
 
-:where(button, [role="button"], .nav-link, .theme-toggle, .source-code-link, .filter-toggle-btn, .project-link, .project-detail-link, .home-action, .tag-filter-btn, .clear-btn, .card-inline-action, .blog-card-arrow, .filter-close-btn, .scroll-top-btn, .mobile-menu-btn, .home-social-btn, .about-social-link, .blog-nav-link, .code-copy-button) {
-    user-select: none;
-    touch-action: manipulation;
+:where(button, [role="button"], .nav-link, .source-code-link, .filter-toggle-btn, .project-link, .project-detail-link, .home-action, .tag-filter-btn, .clear-btn, .card-inline-action, .blog-card-arrow, .filter-close-btn, .scroll-top-btn, .mobile-menu-btn, .home-social-btn, .about-social-link, .blog-nav-link, .code-copy-button, .theme-option-btn) {
+    -webkit-tap-highlight-color: transparent;
+    outline-offset: 2px;
 }
 
-.nav-link:focus-visible,
-.theme-toggle:focus-visible,
-.source-code-link:focus-visible,
+.theme-option-btn:focus-visible,
 .filter-toggle-btn:focus-visible,
 .project-link:focus-visible,
 .project-detail-link:focus-visible,
 .home-action:focus-visible,
 .tag-filter-btn:focus-visible,
 .clear-btn:focus-visible,
-.card-inline-action:focus-visible,
-.blog-card-arrow:focus-visible,
-.filter-close-btn:focus-visible,
-.scroll-top-btn:focus-visible,
-.mobile-menu-btn:focus-visible,
 .home-social-btn:focus-visible,
 .about-social-link:focus-visible,
 .blog-nav-link:focus-visible,
@@ -4028,7 +4070,7 @@ select {
         border-color: var(--line-color);
     }
 
-    .theme-toggle {
+    .theme-switcher-pill {
         grid-column: auto;
         justify-self: auto;
         justify-content: center;
@@ -4140,7 +4182,7 @@ select {
     }
 
     .filter-toggle-btn,
-    .theme-toggle {
+    .theme-switcher-pill {
         width: 100%;
     }
 

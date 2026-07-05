@@ -1106,12 +1106,22 @@ function replaceNavigation(html, value) {
 }
 
 function replaceThemeToggleDefault(html) {
-    return html
-        .replace(
-            /<button id="theme-toggle" class="theme-toggle" type="button"[^>]*>/,
-            '<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">'
-        )
-        .replace(/(<span class="theme-label">)[\s\S]*?(<\/span>)/, '$1Dark mode$2');
+    // Replace any existing theme-switcher block with the default dark mode state
+    return html.replace(
+        /<div class="theme-switcher-pill" id="theme-switcher">[\s\S]*?<\/div>\s*<\/div>\s*<\/header>/,
+        `<div class="theme-switcher-pill" id="theme-switcher">
+                    <div class="theme-active-display">
+                        <div class="theme-icon-circle">◐</div>
+                        <span class="theme-active-label">Dark</span>
+                    </div>
+                    <div class="theme-options">
+                        <button type="button" class="theme-option-btn" data-set-theme="light" title="Switch to Light">☀</button>
+                        <button type="button" class="theme-option-btn" data-set-theme="retro" title="Switch to Retro">🖥️</button>
+                    </div>
+                </div>
+            </div>
+        </header>`
+    );
 }
 
 function removeBuildTimeMarkdownScripts(html) {

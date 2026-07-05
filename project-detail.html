@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="stylesheet" href="styles.css?v=1783235743987">
+    <link rel="stylesheet" href="styles.css?v=1783236502490">
 </head>
 
 <body class="page-project-detail">
@@ -52,10 +52,16 @@
                     <a href="experience.html" class="nav-link">Experience</a>
                     <a href="projects.html" class="nav-link active">Projects</a>
                     <a href="about.html" class="nav-link">About</a>
-                </nav>                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
-                    <span class="theme-icon">◐</span>
-                    <span class="theme-label">Dark mode</span>
-                </button>
+                </nav>                <div class="theme-switcher-pill" id="theme-switcher">
+                    <div class="theme-active-display">
+                        <div class="theme-icon-circle">◐</div>
+                        <span class="theme-active-label">Dark</span>
+                    </div>
+                    <div class="theme-options">
+                        <button type="button" class="theme-option-btn" data-set-theme="light" title="Switch to Light">☀</button>
+                        <button type="button" class="theme-option-btn" data-set-theme="retro" title="Switch to Retro">🖥️</button>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -77,9 +83,11 @@
         </footer>
     </div>
 
-    <script src="api-static/config/bootstrap.js?v=1783235743987" defer></script>
+    <script src="api-static/config/bootstrap.js?v=1783236502490" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
-    <script src="blog.js?v=1783235743987" defer></script>
+    <script src="blog.js?v=1783236502490" defer></script>
 </body>
 
 </html>
+
+

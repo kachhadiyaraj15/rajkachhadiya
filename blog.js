@@ -1474,39 +1474,57 @@ class ThemeManager {
     }
 
     setupToggleButton() {
-        const toggleBtn = document.getElementById('theme-toggle');
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => this.toggleTheme());
+        const switcher = document.getElementById('theme-switcher');
+        if (switcher) {
+            const optionBtns = switcher.querySelectorAll('.theme-option-btn');
+            optionBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const theme = e.currentTarget.getAttribute('data-set-theme');
+                    if (theme) {
+                        this.setTheme(theme);
+                    }
+                });
+            });
         }
     }
 
     updateToggleButton(theme) {
-        const toggleBtn = document.getElementById('theme-toggle');
-        if (toggleBtn) {
-            const icon = toggleBtn.querySelector('.theme-icon');
-            const label = toggleBtn.querySelector('.theme-label');
-            let iconText = '◐';
-            let labelText = 'Dark mode';
-            let actionLabel = 'Switch to dark mode';
+        const switcher = document.getElementById('theme-switcher');
+        if (switcher) {
+            const activeIcon = switcher.querySelector('.theme-icon-circle');
+            const activeLabel = switcher.querySelector('.theme-active-label');
+            const optionsContainer = switcher.querySelector('.theme-options');
             
-            if (theme === this.THEMES.DARK) {
-                iconText = '🖥️';
-                labelText = 'Retro mode';
-                actionLabel = 'Switch to retro mode';
-            } else if (theme === this.THEMES.RETRO) {
-                iconText = '☀';
-                labelText = 'Light mode';
-                actionLabel = 'Switch to light mode';
+            const themeConfigs = {
+                [this.THEMES.LIGHT]: { icon: '☀', label: 'Light' },
+                [this.THEMES.DARK]: { icon: '◐', label: 'Dark' },
+                [this.THEMES.RETRO]: { icon: '🖥️', label: 'Retro' }
+            };
+
+            const currentConfig = themeConfigs[theme];
+            if (currentConfig) {
+                if (activeIcon) activeIcon.textContent = currentConfig.icon;
+                if (activeLabel) activeLabel.textContent = currentConfig.label;
             }
 
-            if (icon) {
-                icon.textContent = iconText;
+            if (optionsContainer) {
+                optionsContainer.innerHTML = '';
+                Object.keys(themeConfigs).forEach(themeKey => {
+                    if (themeKey !== theme) {
+                        const btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'theme-option-btn';
+                        btn.setAttribute('data-set-theme', themeKey);
+                        btn.setAttribute('title', `Switch to ${themeConfigs[themeKey].label}`);
+                        btn.textContent = themeConfigs[themeKey].icon;
+                        
+                        btn.addEventListener('click', () => {
+                            this.setTheme(themeKey);
+                        });
+                        optionsContainer.appendChild(btn);
+                    }
+                });
             }
-            if (label) {
-                label.textContent = labelText;
-            }
-            toggleBtn.setAttribute('aria-label', actionLabel);
-            toggleBtn.setAttribute('title', actionLabel);
         }
     }
 }
