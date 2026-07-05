@@ -1110,14 +1110,18 @@ function replaceThemeToggleDefault(html) {
     return html.replace(
         /<div class="theme-switcher-pill" id="theme-switcher">[\s\S]*?<\/div>\s*<\/div>\s*<\/header>/,
         `<div class="theme-switcher-pill" id="theme-switcher">
-                    <div class="theme-active-display">
-                        <div class="theme-icon-circle">◐</div>
-                        <span class="theme-active-label">Dark</span>
-                    </div>
-                    <div class="theme-options">
-                        <button type="button" class="theme-option-btn" data-set-theme="light" title="Switch to Light">☀</button>
-                        <button type="button" class="theme-option-btn" data-set-theme="retro" title="Switch to Retro">🖥️</button>
-                    </div>
+                    <button type="button" class="theme-btn" data-set-theme="light" title="Switch to Light">
+                        <span class="theme-icon">☀</span>
+                        <span class="theme-label">Light</span>
+                    </button>
+                    <button type="button" class="theme-btn active" data-set-theme="dark" title="Switch to Dark">
+                        <span class="theme-icon">◐</span>
+                        <span class="theme-label">Dark</span>
+                    </button>
+                    <button type="button" class="theme-btn" data-set-theme="retro" title="Switch to Retro">
+                        <span class="theme-icon">🖥️</span>
+                        <span class="theme-label">Retro</span>
+                    </button>
                 </div>
             </div>
         </header>`

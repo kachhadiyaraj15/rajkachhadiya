@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="stylesheet" href="styles.css?v=1783236502490">
+    <link rel="stylesheet" href="styles.css?v=1783238284900">
 </head>
 
 <body class="page-playlist-detail">
@@ -54,14 +54,18 @@
                     <a href="projects.html" class="nav-link">Projects</a>
                     <a href="about.html" class="nav-link">About</a>
                 </nav>                <div class="theme-switcher-pill" id="theme-switcher">
-                    <div class="theme-active-display">
-                        <div class="theme-icon-circle">◐</div>
-                        <span class="theme-active-label">Dark</span>
-                    </div>
-                    <div class="theme-options">
-                        <button type="button" class="theme-option-btn" data-set-theme="light" title="Switch to Light">☀</button>
-                        <button type="button" class="theme-option-btn" data-set-theme="retro" title="Switch to Retro">🖥️</button>
-                    </div>
+                    <button type="button" class="theme-btn" data-set-theme="light" title="Switch to Light">
+                        <span class="theme-icon">☀</span>
+                        <span class="theme-label">Light</span>
+                    </button>
+                    <button type="button" class="theme-btn active" data-set-theme="dark" title="Switch to Dark">
+                        <span class="theme-icon">◐</span>
+                        <span class="theme-label">Dark</span>
+                    </button>
+                    <button type="button" class="theme-btn" data-set-theme="retro" title="Switch to Retro">
+                        <span class="theme-icon">🖥️</span>
+                        <span class="theme-label">Retro</span>
+                    </button>
                 </div>
             </div>
         </header>
@@ -82,11 +86,12 @@
         </footer>
     </div>
 
-    <script src="api-static/config/bootstrap.js?v=1783236502490" defer></script>
+    <script src="api-static/config/bootstrap.js?v=1783238284900" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
-    <script src="blog.js?v=1783236502490" defer></script>
+    <script src="blog.js?v=1783238284900" defer></script>
 </body>
 
 </html>
+
 
 

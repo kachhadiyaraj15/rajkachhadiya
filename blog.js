@@ -1476,8 +1476,8 @@ class ThemeManager {
     setupToggleButton() {
         const switcher = document.getElementById('theme-switcher');
         if (switcher) {
-            const optionBtns = switcher.querySelectorAll('.theme-option-btn');
-            optionBtns.forEach(btn => {
+            const btns = switcher.querySelectorAll('.theme-btn');
+            btns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const theme = e.currentTarget.getAttribute('data-set-theme');
                     if (theme) {
@@ -1491,40 +1491,14 @@ class ThemeManager {
     updateToggleButton(theme) {
         const switcher = document.getElementById('theme-switcher');
         if (switcher) {
-            const activeIcon = switcher.querySelector('.theme-icon-circle');
-            const activeLabel = switcher.querySelector('.theme-active-label');
-            const optionsContainer = switcher.querySelector('.theme-options');
-            
-            const themeConfigs = {
-                [this.THEMES.LIGHT]: { icon: '☀', label: 'Light' },
-                [this.THEMES.DARK]: { icon: '◐', label: 'Dark' },
-                [this.THEMES.RETRO]: { icon: '🖥️', label: 'Retro' }
-            };
-
-            const currentConfig = themeConfigs[theme];
-            if (currentConfig) {
-                if (activeIcon) activeIcon.textContent = currentConfig.icon;
-                if (activeLabel) activeLabel.textContent = currentConfig.label;
-            }
-
-            if (optionsContainer) {
-                optionsContainer.innerHTML = '';
-                Object.keys(themeConfigs).forEach(themeKey => {
-                    if (themeKey !== theme) {
-                        const btn = document.createElement('button');
-                        btn.type = 'button';
-                        btn.className = 'theme-option-btn';
-                        btn.setAttribute('data-set-theme', themeKey);
-                        btn.setAttribute('title', `Switch to ${themeConfigs[themeKey].label}`);
-                        btn.textContent = themeConfigs[themeKey].icon;
-                        
-                        btn.addEventListener('click', () => {
-                            this.setTheme(themeKey);
-                        });
-                        optionsContainer.appendChild(btn);
-                    }
-                });
-            }
+            const btns = switcher.querySelectorAll('.theme-btn');
+            btns.forEach(btn => {
+                if (btn.getAttribute('data-set-theme') === theme) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
         }
     }
 }
