@@ -1,6 +1,6 @@
 ---
 name: Raj Kachhadiya
-tagline: Product-minded software engineer
+tagline: Data Scientist in Healthcare | Systems & GPU Enthusiast
 location:
 email: raj.kachhadiya15@gmail.com
 email_label: Raj Kachhadiya
@@ -10,52 +10,42 @@ github: https://github.com/kachhadiyaraj15
 github_label: kachhadiyaraj15
 linkedin: https://www.linkedin.com/in/rajkachhadiya/
 linkedin_label: Raj Kachhadiya
-website: 
-website_label:
-focus: [Frontend systems, Product engineering, Content workflows]
+website: https://equitypulse.fyi/
+website_label: EquityPulse
+focus: [Data Science in Healthcare, GPU Programming (CUDA), AI in Finance]
 availability: 
 ---
 
 ## Profile
 
-I build software where product clarity and implementation quality matter equally. The work I enjoy most sits between interface design, application architecture, and developer experience. I like systems that feel calm on the surface and stay understandable underneath.
+I am a Data Scientist working at the intersection of healthcare, high-performance computing, and financial intelligence. My primary work involves applying machine learning to the oncology domain, but I am equally passionate about the underlying infrastructure that makes modern AI possible. I enjoy diving deep into systems programming to understand how things work under the hood.
 
 ## What I bring
 
-### Interface quality
+### Data Science in Healthcare
+* Applying machine learning methodologies to extract meaningful patterns from complex clinical and molecular data.
+* Focusing on the oncology domain to help drive data-informed decisions in healthcare.
 
-* Turning rough requirements into polished, production-grade interfaces
-* Building design systems that stay consistent without feeling anonymous
-* Making dense workflows feel clear through hierarchy, spacing, and stronger defaults
+### Systems & GPU Programming
+* Developing a deep understanding of high-performance computing and underlying infrastructure.
+* Learning and applying **CUDA** programming to optimize model execution and leverage GPU architectures effectively.
 
-### Systems thinking
-
-* Breaking features into maintainable modules and predictable data flows
-* Using simple technical choices when they age better than complex stacks
-* Keeping code understandable for the next person who touches it
-
-### Operational clarity
-
-* Designing workflows that are easy to update instead of fragile to maintain
-* Reducing publishing and release friction so content and product stay current
-* Treating deployment, documentation, and authoring as part of the user experience
+### AI & Financial Intelligence
+* Building [EquityPulse](https://equitypulse.fyi/), an AI-driven platform designed to distill dense annual reports and earnings calls.
+* Leveraging Large Language Models to automate and enhance personal finance research and equity analysis.
 
 ## How I work
 
-* I optimize for clarity before cleverness.
-* I like systems that are easy to hand off, extend, and debug.
-* I care about the details that shape trust: copy, spacing, naming, performance, and edge cases.
-
-## What I value
-
-I value products that stay coherent after shipping. That usually means better structure, fewer moving parts, and a healthy respect for maintainability. It also means caring about presentation. Users notice when an interface feels generic, rushed, or hard to trust.
+* **Depth over surface:** I prefer understanding the underlying systems and architectures rather than just working at the abstraction layer.
+* **Continuous learning:** Whether it's picking up a new systems language or studying biomedical topics, I am always expanding my knowledge base.
+* **Practical application:** I believe in building tools (like EquityPulse) to solve real-world, personal problems, combining my interests in finance and technology.
 
 ## Current interests
 
-* Distinctive frontend design that avoids bland template aesthetics
-* Lightweight publishing systems for personal sites and internal tools
-* Product interfaces that make complex workflows feel calm
+* **Technical:** CUDA programming, GPU architecture, and software infrastructure for AI.
+* **Business & Finance:** Equity research, business strategies, and personal finance growth.
+* **Non-Fiction Reading:** Books covering human psychology, biomedicine, and the mechanics of successful businesses.
 
-## Collaboration
+## Let's Connect
 
-I am most interested in projects that value thoughtful execution. That can mean shipping customer-facing product work, improving an internal workflow, or cleaning up a system that already exists but needs a clearer structure. The common thread is wanting the result to feel intentional, not merely finished.
+I am always excited to collaborate on infrastructure-related projects, discuss GPU optimizations, or just burn some tokens exploring new LLM capabilities. If you want to chat about AI in healthcare, systems programming, or financial markets, drop me a line!

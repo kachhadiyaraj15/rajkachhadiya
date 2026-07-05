@@ -1,7 +1,7 @@
 ---
 name: Raj Kachhadiya
-title: Software engineer building calm interfaces, dependable systems, and maintainable products.
-bio: I care about software that still feels clear six months after launch. That usually means good defaults, thoughtful frontend detail, and content workflows that stay easy to update.
+title: Data Scientist in Healthcare | Learning GPU Programming & Building EquityPulse.
+bio: Working at the intersection of oncology data science, GPU acceleration, and financial intelligence. Currently learning CUDA, building EquityPulse, and sharing notes on systems and life.
 twitter: https://x.com/kachhadiyaraj15
 twitter_label: kachhadiyaraj15
 linkedin: https://www.linkedin.com/in/rajkachhadiya/
@@ -11,31 +11,32 @@ github_label: kachhadiyaraj15
 youtube: 
 youtube_label:
 email: raj.kachhadiya15@gmail.com
-email_label:  Raj Kachhadiya
+email_label: Raj Kachhadiya
 website: 
 website_label: 
 ---
 
-## Snapshot
+## What I'm Doing Now
 
-* Product-minded engineer focused on frontend quality, internal tools, and reliable delivery.
-* Comfortable moving between interface design, application architecture, and content systems.
-* Prefer simple primitives, strong defaults, and documentation that keeps future edits easy.
+* **Data Science in Oncology:** Applying machine learning and data science methodologies to the healthcare domain, specifically focusing on oncology to extract meaningful patterns from clinical and molecular data.
+* **Systems & GPU Programming:** Deep-diving into high-performance computing, learning **CUDA** programming, and mastering underlying infrastructure concepts to optimize model execution.
+* **Financial Research:** Growing and refining my personal finance portfolio with the help of [EquityPulse](https://equitypulse.fyi/), an AI-driven platform I've been building to distill dense annual reports and earnings calls.
 
-## Selected Focus
+## What You'll Find Here
 
-* Building polished portfolio and product interfaces without adding heavy framework complexity.
-* Tightening developer workflows so publishing and iteration stay lightweight.
-* Designing UI systems that feel intentional instead of template-generated.
+This website is a personal repository of my learning, writing, and exploration:
 
-## Working Style
+* **Technical Notebooks:** Detailed write-ups on CUDA programming, GPU architecture, software infrastructure, and regular data science learnings as I progress.
+* **Non-AI & Business Reading:** Summaries and insights from books covering finance, business strategies, human psychology, and biomedical topics.
+* **Life & Opinions:** Thoughts on life, work, and personal opinions. 
+  > [!NOTE]
+  > The opinions shared here are entirely personal and represent my own viewpoints, written with positive intent and not meant to offend.
 
-* Start with structure, then make the presentation memorable.
-* Prefer maintainable systems over clever one-off implementations.
-* Treat content, navigation, and deployment as part of the product experience.
+## Let's Connect
 
-## This Site
+If you find a mistake, have a suggestion, or just want to chat:
+* Ping me on [X (Twitter)](https://x.com/kachhadiyaraj15) or [LinkedIn](https://www.linkedin.com/in/rajkachhadiya/).
+* Drop me a line on [Gmail](mailto:raj.kachhadiya15@gmail.com).
 
-This portfolio is intentionally markdown-first. The content lives in a few predictable folders, the build step generates static JSON, and deployment stays simple enough for Vercel, Netlify, or any static host.
+I am always excited to collaborate on infrastructure-related projects, discuss GPU optimizations, or just burn some tokens. Let's connect!
 
-If you want to update the homepage later, edit this file and run `npm run build`.

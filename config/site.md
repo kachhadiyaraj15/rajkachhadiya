@@ -12,8 +12,8 @@ seo_locale: en_US
 enable_home: true
 enable_about: true
 enable_projects: true
-enable_blog: false
-enable_playlists: false
+enable_blog: true
+enable_playlists: true
 enable_experience: true
 
 navigation: home|Home|index.html, experience|Experience|experience.html, projects|Projects|projects.html, blog|Blog|blog.html, playlists|Playlists|playlists.html, about|About|about.html
@@ -51,7 +51,7 @@ blog_show_categories: true
 blog_show_tags: true
 blog_enable_filters: true
 
-footer_text: Copyright {{year}} Karam. Designed with intention and built for the web.
+footer_text: Copyright {{year}} Raj Kachhadiya. All rights reserved.
 ---
 
 # Editing Notes

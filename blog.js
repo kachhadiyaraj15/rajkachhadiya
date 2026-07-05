@@ -1604,6 +1604,8 @@ class FilterPanel {
 // Blog System Module
 // ===========================
 
+
+
 class BlogSystem {
     constructor(configManager = null) {
         this.posts = [];
@@ -1759,6 +1761,21 @@ class BlogSystem {
 
         // Load posts from markdown files
         await this.loadPostsFromFiles();
+
+        if (this.configManager && !this.configManager.isPageEnabled('blog') || this.posts.length === 0) {
+            blogListContainer.innerHTML = `
+                <div class="empty-state" style="grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5rem 2rem; background: linear-gradient(145deg, var(--surface-strong), transparent); border: 1px dashed var(--border-color); border-radius: 24px; margin: 2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;">🚀</div>
+                    <h2 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.75rem;">Coming Soon</h2>
+                    <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto; line-height: 1.6;">I'm currently working on bringing you exciting content for the Blog. Please check back later!</p>
+                </div>
+            `;
+            const filterToggle = document.getElementById('filter-toggle-btn');
+            if (filterToggle) filterToggle.style.display = 'none';
+            const countEl = document.getElementById('posts-count');
+            if (countEl) countEl.style.display = 'none';
+            return;
+        }
 
         // Render and setup filters
         this.renderCategoryFilters();
@@ -2313,6 +2330,20 @@ class PlaylistSystem {
         if (!container) return;
 
         await this.loadPlaylistsFromFiles();
+        
+        if (this.configManager && !this.configManager.isPageEnabled('playlists') || this.playlists.length === 0) {
+            container.innerHTML = `
+                <div class="empty-state" style="grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5rem 2rem; background: linear-gradient(145deg, var(--surface-strong), transparent); border: 1px dashed var(--border-color); border-radius: 24px; margin: 2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;">🚀</div>
+                    <h2 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.75rem;">Coming Soon</h2>
+                    <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto; line-height: 1.6;">I'm currently working on bringing you exciting content for Playlists. Please check back later!</p>
+                </div>
+            `;
+            const countEl = document.getElementById('playlists-count');
+            if (countEl) countEl.style.display = 'none';
+            return;
+        }
+        
         this.renderPlaylistList();
     }
 
