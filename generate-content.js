@@ -258,7 +258,7 @@ class BuildMarkdownRenderer {
         this.usePlugin(markdownItMark);
         this.usePlugin(markdownItSub);
         this.usePlugin(markdownItSup);
-        this.usePlugin(markdownItTaskLists, { enabled: true });
+        this.usePlugin(markdownItTaskLists, { enabled: false });
         this.usePlugin(markdownItEmoji);
         this.usePlugin(markdownItAnchor, {
             slugify: slugifyHeading,

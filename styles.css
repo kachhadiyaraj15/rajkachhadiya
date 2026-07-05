@@ -2752,7 +2752,7 @@ select {
 
 .project-detail-hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+    grid-template-columns: 1fr;
     gap: 1.2rem;
     align-items: stretch;
 }
@@ -2780,11 +2780,14 @@ select {
 .project-detail-title {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     margin-bottom: 0.9rem;
+    max-width: none;
+    line-height: 1.12;
 }
-
+ 
 .project-detail-description {
     font-size: 1.08rem;
-    max-width: 38rem;
+    line-height: 1.5;
+    max-width: none;
 }
 
 .project-detail-tech h3,
@@ -4689,3 +4692,62 @@ select {
         filter: brightness(1.15);
     }
 }
+
+/* Rotating Gradient Border Animation for Live Demo button */
+.project-detail-link.live-link-highlight {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    background: transparent;
+    z-index: 1;
+}
+
+.project-detail-link.live-link-highlight::before {
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 400%;
+    height: 400%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 30%,
+        var(--accent-primary) 40%,
+        var(--accent-secondary) 50%,
+        var(--accent-primary) 60%,
+        transparent 70%
+    );
+    animation: rotate-border 4s linear infinite;
+    z-index: -2;
+}
+
+.project-detail-link.live-link-highlight .highlight-btn-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(0.78rem - 1px) calc(1.05rem - 1px);
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    margin: 1px;
+    border-radius: 999px;
+    background: var(--surface-strong);
+    color: var(--text-primary);
+    transition: background var(--transition-fast);
+    z-index: -1;
+}
+
+.project-detail-link.live-link-highlight:hover .highlight-btn-inner {
+    background: var(--surface-hover);
+    color: var(--accent-strong);
+}
+
+@keyframes rotate-border {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

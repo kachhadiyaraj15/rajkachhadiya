@@ -2633,6 +2633,12 @@ function getProjectLinks(project) {
 
 function renderProjectLink(link, className) {
     const targetAttrs = isExternalProjectLinkUrl(link.url) ? ' target="_blank" rel="noopener noreferrer"' : '';
+    const labelLower = String(link.label || '').toLowerCase();
+    const isLive = labelLower.includes('live') || labelLower.includes('demo') || labelLower.includes('website');
+    
+    if (isLive) {
+        return `<a href="${escapeHtml(link.url)}" class="${className} live-link-highlight"${targetAttrs}><span class="highlight-btn-inner">${escapeHtml(link.label)}</span></a>`;
+    }
     return `<a href="${escapeHtml(link.url)}" class="${className}"${targetAttrs}>${escapeHtml(link.label)}</a>`;
 }
 
@@ -3206,7 +3212,6 @@ class ProjectSystem {
                             ${linksHTML}
                             ${techHTML}
                         </div>
-                        ${project.image ? `<div class="project-detail-media"><img src="${this.configManager.replaceVariables(project.image)}" alt="${project.title}" class="project-detail-image"></div>` : ''}
                     </div>
                 </header>
                 <div class="project-detail-content prose">
@@ -3484,7 +3489,7 @@ class ExperienceSystem {
 
         const links = [];
         if (entry.website) {
-            links.push(`<a href="${entry.website}" class="project-detail-link" target="_blank" rel="noopener noreferrer">Company Website</a>`);
+            links.push(renderProjectLink({ label: 'Company Website', url: entry.website }, 'project-detail-link'));
         }
 
         const technologies = Array.isArray(entry.technologies) && entry.technologies.length > 0

@@ -5,6 +5,8 @@
 PROJECT1_IMAGE: assets/images/project1.jpg
 PROJECT2_IMAGE: assets/images/project2.jpg
 PROJECT3_IMAGE: assets/images/project3.jpg
+EQUITYPULSE_LANDING: assets/images/equitypulse_landing.png
+EQUITYPULSE_ANALYSIS: assets/images/equitypulse_analysis.png
 ---
 
 # Usage
