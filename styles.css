@@ -1112,6 +1112,40 @@ select {
     text-align: center;
 }
 
+.empty-state--enhanced {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(145deg, var(--surface-strong), transparent);
+    border: 1px dashed var(--border-color);
+    border-radius: 24px;
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    text-align: center;
+}
+
+.empty-state--enhanced .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state--enhanced h2 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.75rem;
+}
+
+.empty-state--enhanced p {
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
 .page-chip {
     color: var(--accent-primary);
     background: rgba(15, 107, 104, 0.08);
@@ -1640,6 +1674,7 @@ select {
     color: var(--accent-strong);
     font-family: var(--font-mono);
     font-size: 0.92em;
+    font-weight: 500;
 }
 
 .prose pre {
@@ -1653,18 +1688,15 @@ select {
     overflow: hidden;
 }
 
-.prose pre code {
+.prose pre code,
+.prose pre .hljs {
     display: block;
     overflow-x: auto;
-    padding: 1.15rem 1.1rem;
+    padding: 3.25rem 1.5rem 1.5rem 1.5rem;
     background: transparent;
     color: var(--text-primary);
     line-height: 1.65;
     tab-size: 4;
-}
-
-.prose pre[data-code-copy-ready] code {
-    padding-top: 3rem;
 }
 
 .prose pre[data-language]::before {
@@ -1742,7 +1774,6 @@ select {
 
 .prose pre .hljs {
     background: transparent;
-    padding: 0;
 }
 
 .prose blockquote {
@@ -4442,12 +4473,9 @@ select {
         border-radius: 16px;
     }
 
-    .prose pre code {
-        padding: 0.9rem;
-    }
-
-    .prose pre[data-code-copy-ready] code {
-        padding-top: 3rem;
+    .prose pre code,
+    .prose pre .hljs {
+        padding: 2.75rem 1.1rem 1.1rem 1.1rem;
     }
 
     .prose .code-copy-button {
@@ -4737,6 +4765,11 @@ select {
         rgba(118, 185, 0, 0.09) 3px
     );
     box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.55), inset 0 0 8px rgba(118, 185, 0, 0.08);
+}
+
+[data-theme="retro"] .prose code {
+    font-size: 1.3em;
+    font-weight: 400;
 }
 
 @keyframes crt-flicker {
