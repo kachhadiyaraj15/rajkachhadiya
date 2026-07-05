@@ -3431,6 +3431,17 @@ select {
     border-color: rgba(255, 255, 255, 0.08);
 }
 
+[data-theme="retro"] .blog-tag,
+[data-theme="retro"] .tech-tag,
+[data-theme="retro"] .page-chip,
+[data-theme="retro"] .experience-badge,
+[data-theme="retro"] .about-focus-chip,
+[data-theme="retro"] .tag-filter-btn {
+    background: rgba(118, 185, 0, 0.08);
+    border-color: rgba(118, 185, 0, 0.28);
+    color: var(--accent-primary);
+}
+
 [data-theme="dark"] .page-chip {
     background: rgba(102, 208, 199, 0.12);
     border-color: rgba(102, 208, 199, 0.22);
@@ -3445,6 +3456,13 @@ select {
     color: var(--category-accent-dark, var(--accent-primary));
     background: var(--category-bg-dark, rgba(102, 208, 199, 0.14));
     border-color: var(--category-border-dark, rgba(102, 208, 199, 0.28));
+}
+
+/* Retro: always use retro green palette, ignore JS-injected light category colors */
+[data-theme="retro"] .category-badge {
+    color: var(--accent-primary);
+    background: rgba(118, 185, 0, 0.1);
+    border-color: rgba(118, 185, 0, 0.3);
 }
 
 [data-theme="dark"] .checkbox-custom {
@@ -4369,6 +4387,13 @@ select {
         padding: 0.82rem 0.95rem;
     }
 
+    /* Keep highlight buttons pill-shaped on mobile, not full-width */
+    .project-detail-link.live-link-highlight {
+        width: auto;
+        align-self: flex-start;
+        justify-content: center;
+    }
+
     .project-description,
     .project-detail-description,
     .home-title,
@@ -4504,9 +4529,23 @@ select {
     .playlist-card-title,
     .project-title,
     .about-name,
-    .project-detail-title,
     .playlist-detail-title {
         font-size: 2.2rem;
+    }
+
+    /* Main detail page title slightly smaller so it fits cleanly */
+    .project-detail-title,
+    .experience-detail-title {
+        font-size: 1.95rem;
+    }
+
+    /* Role / subtitle: clearly subordinate label style */
+    .experience-detail-role {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--text-secondary);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
     }
 
     .blog-post-title {
@@ -4738,8 +4777,25 @@ select {
 }
 
 .project-detail-link.live-link-highlight:hover .highlight-btn-inner {
-    background: var(--surface-hover);
+    background: color-mix(in srgb, var(--text-primary) 8%, var(--surface-strong));
     color: var(--accent-strong);
+}
+
+/* Retro theme: hover should stay dark, show neon green text only */
+[data-theme="retro"] .project-detail-link.live-link-highlight:hover .highlight-btn-inner {
+    background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-strong));
+    color: var(--accent-secondary);
+}
+
+/* Fix: prevent base :active rule from bleeding onto transparent shell */
+.project-detail-link.live-link-highlight:active {
+    background-color: transparent;
+    transform: none;
+}
+
+.project-detail-link.live-link-highlight:active .highlight-btn-inner {
+    background: color-mix(in srgb, var(--accent-primary) 9%, var(--surface-strong));
+    transform: scale(0.985);
 }
 
 @keyframes rotate-border {
