@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&family=Patrick+Hand&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root,
 [data-theme="light"] {
@@ -109,6 +110,280 @@
     --font-display: "VT323", "Courier New", monospace;
     --font-body: "JetBrains Mono", ui-monospace, monospace;
     --font-mono: "VT323", "Courier New", monospace;
+}
+
+/* ========================================
+   Notebook Theme — Handwritten Paper Style
+   ======================================== */
+[data-theme="notebook"] {
+    --bg-primary: #fdfaf0;
+    --bg-secondary: rgba(254, 252, 243, 0.88);
+    --bg-tertiary: #f5f0dc;
+    --surface-strong: rgba(255, 253, 245, 0.97);
+    --surface-muted: rgba(245, 240, 220, 0.85);
+    --surface-elevated: rgba(255, 254, 248, 0.99);
+    --surface-overlay: rgba(253, 250, 240, 0.9);
+    --surface-sheen: rgba(255, 255, 255, 0.35);
+    --header-bg: rgba(253, 250, 240, 0.88);
+    /* Ink / text colours */
+    --text-primary: #2b3a55;
+    --text-secondary: #4a5c7a;
+    --text-tertiary: #7a8fa8;
+    /* Accent palette — notebook highlights */
+    --accent-primary: #2563eb;
+    --accent-secondary: #dc2626;
+    --accent-strong: #1e3a8a;
+    /* Highlight swatches (used by notebook-specific rules below) */
+    --nb-hl-yellow: #fef08a;
+    --nb-hl-blue: #bfdbfe;
+    --nb-hl-pink: #fbcfe8;
+    --nb-hl-green: #bbf7d0;
+    --nb-ink-navy: #2b3a55;
+    --nb-ink-blue: #2563eb;
+    --nb-ink-red: #dc2626;
+    --nb-ink-green: #16a34a;
+    /* Borders / lines */
+    --border-color: rgba(43, 58, 85, 0.14);
+    --line-color: rgba(43, 58, 85, 0.22);
+    --panel-edge: rgba(43, 58, 85, 0.08);
+    --link-color: #2563eb;
+    --link-hover: #1e3a8a;
+    --code-bg: #f0ead8;
+    --overlay-scrim: rgba(43, 58, 85, 0.28);
+    --focus-ring: rgba(37, 99, 235, 0.22);
+    --focus-ring-strong: rgba(37, 99, 235, 0.4);
+    --interactive-pressed: rgba(37, 99, 235, 0.08);
+    --shadow-sm: 2px 3px 0px rgba(43, 58, 85, 0.12), 0 6px 20px rgba(43, 58, 85, 0.07);
+    --shadow-md: 3px 4px 0px rgba(43, 58, 85, 0.14), 0 12px 36px rgba(43, 58, 85, 0.10);
+    --shadow-lg: 4px 5px 0px rgba(43, 58, 85, 0.16), 0 20px 60px rgba(43, 58, 85, 0.13);
+    /* Typography — handwriting stack */
+    --font-display: "Patrick Hand", "Comic Neue", cursive;
+    --font-body: "Comic Neue", "Patrick Hand", cursive;
+    --font-mono: "Space Mono", "Courier New", monospace;
+    /* Border-radius tightened for a more paper-like feel */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+}
+
+/* === Notebook theme: body background — notebook grid paper === */
+[data-theme="notebook"] body {
+    background: var(--bg-primary);
+}
+
+[data-theme="notebook"] body::before {
+    background:
+        radial-gradient(circle at 8% 12%, rgba(254, 240, 138, 0.22), transparent 28rem),
+        radial-gradient(circle at 92% 10%, rgba(191, 219, 254, 0.18), transparent 24rem),
+        radial-gradient(circle at 50% 96%, rgba(187, 247, 208, 0.14), transparent 30rem);
+}
+
+/* Notebook grid lines on the page background */
+[data-theme="notebook"] body::after {
+    background-image:
+        linear-gradient(rgba(43, 58, 85, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(43, 58, 85, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.18), transparent 70%);
+    opacity: 1;
+}
+
+/* === Notebook theme: header — ruled paper strip === */
+[data-theme="notebook"] .header {
+    border: 2px solid var(--nb-ink-navy);
+    border-radius: var(--radius-sm);
+    background: var(--surface-strong);
+    backdrop-filter: blur(8px);
+    box-shadow: 3px 3px 0 rgba(43, 58, 85, 0.18);
+}
+
+/* === Notebook theme: brand mark — yellow sticky note === */
+[data-theme="notebook"] .brand-mark {
+    background: var(--nb-hl-yellow);
+    border: 2px solid var(--nb-ink-navy);
+    border-radius: 6px;
+    color: var(--nb-ink-navy);
+    font-family: var(--font-display);
+    box-shadow: 2px 2px 0 rgba(43, 58, 85, 0.2);
+}
+
+/* === Notebook theme: nav underline — hand-drawn feel === */
+[data-theme="notebook"] .nav-link::after {
+    background: var(--nb-ink-navy);
+    height: 2px;
+    border-radius: 0;
+}
+
+[data-theme="notebook"] .nav-link:hover,
+[data-theme="notebook"] .nav-link.active {
+    color: var(--nb-ink-navy);
+}
+
+/* === Notebook theme: cards — hand-sketched border effect === */
+[data-theme="notebook"] .blog-card,
+[data-theme="notebook"] .project-card,
+[data-theme="notebook"] .playlist-card,
+[data-theme="notebook"] .experience-card {
+    border: 2px solid var(--nb-ink-navy);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    background: var(--surface-strong);
+}
+
+[data-theme="notebook"] .blog-card:hover,
+[data-theme="notebook"] .project-card:hover,
+[data-theme="notebook"] .playlist-card:hover,
+[data-theme="notebook"] .experience-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px) rotate(-0.3deg);
+}
+
+/* Remove the gradient top stripe and replace with a yellow highlight bar */
+[data-theme="notebook"] .blog-card::before,
+[data-theme="notebook"] .project-card::before,
+[data-theme="notebook"] .playlist-card::before,
+[data-theme="notebook"] .experience-card::before,
+[data-theme="notebook"] .content-panel::before,
+[data-theme="notebook"] .blog-post-content::before {
+    background: var(--nb-hl-yellow);
+    height: 5px;
+    opacity: 1;
+    border-radius: 0;
+    border-top-left-radius: calc(var(--radius-sm) - 2px);
+    border-top-right-radius: calc(var(--radius-sm) - 2px);
+}
+
+/* === Notebook theme: buttons / chips — ink outlined === */
+[data-theme="notebook"] .filter-toggle-btn,
+[data-theme="notebook"] .project-link,
+[data-theme="notebook"] .project-detail-link,
+[data-theme="notebook"] .home-action,
+[data-theme="notebook"] .tag-filter-btn,
+[data-theme="notebook"] .clear-btn {
+    border: 2px solid var(--nb-ink-navy);
+    border-radius: var(--radius-sm);
+    background: var(--surface-strong);
+    box-shadow: 2px 2px 0 rgba(43, 58, 85, 0.15);
+}
+
+[data-theme="notebook"] .filter-toggle-btn:hover,
+[data-theme="notebook"] .project-link:hover,
+[data-theme="notebook"] .project-detail-link:hover,
+[data-theme="notebook"] .home-action:hover,
+[data-theme="notebook"] .tag-filter-btn:hover,
+[data-theme="notebook"] .clear-btn:hover {
+    border-color: var(--nb-ink-navy);
+    box-shadow: 3px 3px 0 rgba(43, 58, 85, 0.2);
+    transform: translateY(-1px);
+    background: var(--nb-hl-yellow);
+}
+
+/* === Notebook theme: hero count pill === */
+[data-theme="notebook"] .hero-count {
+    border: 2px solid var(--nb-ink-navy);
+    border-radius: var(--radius-sm);
+    background: var(--nb-hl-blue);
+    box-shadow: 2px 2px 0 rgba(43, 58, 85, 0.12);
+}
+
+/* === Notebook theme: theme switcher pill === */
+[data-theme="notebook"] .theme-switcher-pill {
+    border: 2px solid var(--nb-ink-navy);
+    border-radius: var(--radius-sm);
+    background: var(--surface-strong);
+    box-shadow: 2px 2px 0 rgba(43, 58, 85, 0.12);
+}
+
+[data-theme="notebook"] .theme-btn.active {
+    background: var(--nb-hl-yellow);
+    color: var(--nb-ink-navy);
+    border-radius: calc(var(--radius-sm) - 2px);
+}
+
+/* === Notebook theme: tags / chips === */
+[data-theme="notebook"] .blog-tag,
+[data-theme="notebook"] .tech-tag,
+[data-theme="notebook"] .experience-badge,
+[data-theme="notebook"] .page-chip {
+    border: 1.5px solid var(--nb-ink-navy);
+    border-radius: 4px;
+    background: var(--nb-hl-blue);
+    color: var(--nb-ink-navy);
+    font-weight: 700;
+}
+
+/* === Notebook theme: source code link button === */
+[data-theme="notebook"] .source-code-link {
+    border: 2px solid var(--nb-ink-navy);
+    border-radius: var(--radius-sm);
+    box-shadow: 2px 2px 0 rgba(43, 58, 85, 0.12);
+}
+
+/* === Notebook theme: content panel / blog post === */
+[data-theme="notebook"] .content-panel,
+[data-theme="notebook"] .blog-post-content {
+    border: 2px solid var(--nb-ink-navy);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+/* === Notebook theme: blockquotes with pencil-line left border === */
+[data-theme="notebook"] blockquote {
+    border-left: 4px solid var(--nb-hl-yellow);
+    background: rgba(254, 240, 138, 0.15);
+    border-radius: 0 6px 6px 0;
+}
+
+/* === Notebook theme: code blocks === */
+[data-theme="notebook"] code,
+[data-theme="notebook"] pre {
+    font-family: var(--font-mono);
+}
+
+[data-theme="notebook"] pre {
+    border: 2px solid var(--nb-ink-navy);
+    border-radius: var(--radius-sm);
+    background: var(--code-bg);
+    box-shadow: 2px 2px 0 rgba(43, 58, 85, 0.1);
+}
+
+/* === Notebook theme: headings in display font === */
+[data-theme="notebook"] h1,
+[data-theme="notebook"] h2,
+[data-theme="notebook"] h3,
+[data-theme="notebook"] h4 {
+    font-family: var(--font-display);
+    color: var(--nb-ink-navy);
+}
+
+/* === Notebook theme: horizontal rules — pencil line === */
+[data-theme="notebook"] hr {
+    border: none;
+    border-top: 2px dashed rgba(43, 58, 85, 0.25);
+}
+
+/* === Notebook theme: footer === */
+[data-theme="notebook"] .footer {
+    border-top: 2px dashed rgba(43, 58, 85, 0.25);
+}
+
+/* === Notebook theme: filter panel === */
+[data-theme="notebook"] .filter-panel {
+    border: 2px solid var(--nb-ink-navy);
+    border-radius: var(--radius-md);
+    box-shadow: 4px 4px 0 rgba(43, 58, 85, 0.16);
+}
+
+/* === Notebook theme: experience timeline line === */
+[data-theme="notebook"] .experience-timeline-line {
+    background: var(--nb-ink-navy);
+    opacity: 0.2;
+}
+
+/* === Notebook theme: highlight.js code background override === */
+[data-theme="notebook"] .hljs {
+    background: var(--code-bg) !important;
+    border-radius: var(--radius-sm);
 }
 
 * {
@@ -1518,6 +1793,7 @@ select {
     --social-border: rgba(118, 185, 0, 0.22);
     --social-glow: rgba(118, 185, 0, 0.18);
 }
+
 
 .social-icon {
     width: 1.05rem;
@@ -4867,6 +5143,114 @@ select {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+/* ========================================
+   Notebook Theme: Social Links Style
+   ======================================== */
+[data-theme="notebook"] .home-social-btn,
+[data-theme="notebook"] .about-social-link {
+    border: 2px solid var(--nb-ink-navy) !important;
+    border-radius: var(--radius-sm) !important;
+    box-shadow: 2px 2px 0 rgba(43, 58, 85, 0.15) !important;
+    background: var(--surface-strong) !important;
+    color: var(--nb-ink-navy) !important;
+    box-shadow: 3px 3px 0 rgba(43, 58, 85, 0.16) !important;
+}
+
+[data-theme="notebook"] .home-social-btn::before,
+[data-theme="notebook"] .about-social-link::before {
+    display: none !important; /* Hide gradient mask */
+}
+
+[data-theme="notebook"] .social-icon-wrap {
+    border: 2px solid var(--nb-ink-navy) !important;
+    border-radius: 6px !important;
+    background: var(--bg-primary) !important;
+    box-shadow: 1px 1px 0 rgba(43, 58, 85, 0.12) !important;
+}
+
+[data-theme="notebook"] [class*="social-link--"] {
+    --social-accent: var(--nb-ink-navy) !important;
+    --social-tint: rgba(43, 58, 85, 0.05) !important;
+    --social-border: var(--nb-ink-navy) !important;
+    --social-glow: transparent !important;
+}
+
+/* Individual highlighter hover effects for each platform */
+[data-theme="notebook"] .social-link--twitter:hover {
+    background: var(--nb-hl-blue) !important;
+}
+[data-theme="notebook"] .social-link--github:hover {
+    background: var(--nb-hl-yellow) !important;
+}
+[data-theme="notebook"] .social-link--linkedin:hover {
+    background: var(--nb-hl-blue) !important;
+}
+[data-theme="notebook"] .social-link--email:hover {
+    background: var(--nb-hl-pink) !important;
+}
+[data-theme="notebook"] .social-link--youtube:hover {
+    background: var(--nb-hl-pink) !important;
+}
+[data-theme="notebook"] .social-link--website:hover {
+    background: var(--nb-hl-green) !important;
+}
+
+[data-theme="notebook"] .home-social-btn:hover,
+[data-theme="notebook"] .about-social-link:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 4px 4px 0 rgba(43, 58, 85, 0.22) !important;
+}
+
+[data-theme="notebook"] .home-social-btn:hover .social-icon-wrap,
+[data-theme="notebook"] .about-social-link:hover .social-icon-wrap {
+    transform: scale(1.05) rotate(-3deg) !important;
+}
+
+/* ========================================
+   Notebook Theme: Mobile Overrides
+   ======================================== */
+@media (max-width: 980px) {
+    [data-theme="notebook"] .mobile-menu-btn {
+        border: 2px solid var(--nb-ink-navy) !important;
+        border-radius: var(--radius-sm) !important;
+        background: var(--surface-strong) !important;
+        box-shadow: 2px 2px 0 rgba(43, 58, 85, 0.12) !important;
+        color: var(--nb-ink-navy) !important;
+    }
+
+    [data-theme="notebook"] .mobile-menu-btn:hover {
+        background: var(--nb-hl-yellow) !important;
+    }
+
+    [data-theme="notebook"] .header-controls {
+        border: 2px solid var(--nb-ink-navy) !important;
+        border-radius: var(--radius-md) !important;
+        background: var(--surface-strong) !important;
+        box-shadow: var(--shadow-lg) !important;
+    }
+
+    [data-theme="notebook"] .nav-link {
+        border: 2px solid var(--nb-ink-navy) !important;
+        border-radius: var(--radius-sm) !important;
+        background: var(--surface-strong) !important;
+        color: var(--text-primary) !important;
+        font-family: var(--font-display) !important;
+        font-size: 0.95rem !important;
+        box-shadow: 2px 2px 0 rgba(43, 58, 85, 0.08) !important;
+    }
+
+    [data-theme="notebook"] .nav-link.active {
+        background: var(--nb-hl-yellow) !important;
+        color: var(--nb-ink-navy) !important;
+        border-color: var(--nb-ink-navy) !important;
+        box-shadow: 2px 2px 0 rgba(43, 58, 85, 0.15) !important;
+    }
+
+    [data-theme="notebook"] .nav-link:hover {
+        background: var(--nb-hl-blue) !important;
     }
 }
 

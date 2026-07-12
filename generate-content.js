@@ -1122,6 +1122,10 @@ function replaceThemeToggleDefault(html) {
                         <span class="theme-icon">🖥️</span>
                         <span class="theme-label">Retro</span>
                     </button>
+                    <button type="button" class="theme-btn" data-set-theme="notebook" title="Switch to Notebook">
+                        <span class="theme-icon">📓</span>
+                        <span class="theme-label">Notebook</span>
+                    </button>
                 </div>
             </div>
         </header>`

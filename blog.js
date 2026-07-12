@@ -1432,7 +1432,8 @@ class ThemeManager {
         this.THEMES = {
             DARK: 'dark',
             LIGHT: 'light',
-            RETRO: 'retro'
+            RETRO: 'retro',
+            NOTEBOOK: 'notebook'
         };
         this.init();
     }
@@ -1469,6 +1470,7 @@ class ThemeManager {
         let newTheme;
         if (currentTheme === this.THEMES.LIGHT) newTheme = this.THEMES.DARK;
         else if (currentTheme === this.THEMES.DARK) newTheme = this.THEMES.RETRO;
+        else if (currentTheme === this.THEMES.RETRO) newTheme = this.THEMES.NOTEBOOK;
         else newTheme = this.THEMES.LIGHT;
         this.setTheme(newTheme);
     }
