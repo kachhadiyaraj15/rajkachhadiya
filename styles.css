@@ -116,6 +116,7 @@
    Notebook Theme — Handwritten Paper Style
    ======================================== */
 [data-theme="notebook"] {
+    font-size: 108%; /* Scale up base size to compensate for thin handwriting font */
     --bg-primary: #fdfaf0;
     --bg-secondary: rgba(254, 252, 243, 0.88);
     --bg-tertiary: #f5f0dc;
@@ -169,6 +170,24 @@
 /* === Notebook theme: body background — notebook grid paper === */
 [data-theme="notebook"] body {
     background: var(--bg-primary);
+    -webkit-text-stroke: 0.15px currentColor;
+}
+
+/* Ink pen text-stroke to simulate hand-drawn bolding on headings and displays */
+[data-theme="notebook"] h1,
+[data-theme="notebook"] h2,
+[data-theme="notebook"] h3,
+[data-theme="notebook"] h4,
+[data-theme="notebook"] h5,
+[data-theme="notebook"] h6,
+[data-theme="notebook"] .home-name,
+[data-theme="notebook"] .about-name,
+[data-theme="notebook"] .experience-company,
+[data-theme="notebook"] .project-detail-title,
+[data-theme="notebook"] .blog-post-title,
+[data-theme="notebook"] .brand-mark,
+[data-theme="notebook"] .theme-btn {
+    -webkit-text-stroke: 0.35px currentColor;
 }
 
 [data-theme="notebook"] body::before {
