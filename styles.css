@@ -5438,3 +5438,181 @@ select {
     background: radial-gradient(circle, rgba(37, 99, 235, 0.08), transparent 70%);
 }
 
+/* ========================================
+   Highlighter Span Styling Utilities
+   ======================================== */
+.hl-yellow,
+.hl-blue,
+.hl-pink,
+.hl-green,
+.hl-orange,
+.hl-purple,
+.hl-red,
+.hl-cyan,
+.hl-gray {
+    padding: 0.12em 0.25em;
+    border-radius: 4px;
+    font-weight: inherit;
+    display: inline;
+}
+
+/* Light / Notebook themes: Solid Highlighter Marker style */
+:root .hl-yellow,
+[data-theme="light"] .hl-yellow,
+[data-theme="notebook"] .hl-yellow {
+    background-color: #fef08a;
+    color: #1f2937;
+}
+:root .hl-blue,
+[data-theme="light"] .hl-blue,
+[data-theme="notebook"] .hl-blue {
+    background-color: #bfdbfe;
+    color: #1f2937;
+}
+:root .hl-pink,
+[data-theme="light"] .hl-pink,
+[data-theme="notebook"] .hl-pink {
+    background-color: #fbcfe8;
+    color: #1f2937;
+}
+:root .hl-green,
+[data-theme="light"] .hl-green,
+[data-theme="notebook"] .hl-green {
+    background-color: #bbf7d0;
+    color: #1f2937;
+}
+:root .hl-orange,
+[data-theme="light"] .hl-orange,
+[data-theme="notebook"] .hl-orange {
+    background-color: #fed7aa;
+    color: #1f2937;
+}
+:root .hl-purple,
+[data-theme="light"] .hl-purple,
+[data-theme="notebook"] .hl-purple {
+    background-color: #ddd6fe;
+    color: #1f2937;
+}
+:root .hl-red,
+[data-theme="light"] .hl-red,
+[data-theme="notebook"] .hl-red {
+    background-color: #fecaca;
+    color: #1f2937;
+}
+:root .hl-cyan,
+[data-theme="light"] .hl-cyan,
+[data-theme="notebook"] .hl-cyan {
+    background-color: #cffafe;
+    color: #1f2937;
+}
+:root .hl-gray,
+[data-theme="light"] .hl-gray,
+[data-theme="notebook"] .hl-gray {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+/* Dark Mode: Translucent glow + colored text + colored underline for 100% legibility */
+[data-theme="dark"] .hl-yellow {
+    background-color: rgba(254, 240, 138, 0.14);
+    color: #fef08a;
+    border-bottom: 2px solid rgba(254, 240, 138, 0.35);
+    padding: 0.05em 0.25em;
+}
+[data-theme="dark"] .hl-blue {
+    background-color: rgba(191, 219, 254, 0.14);
+    color: #bfdbfe;
+    border-bottom: 2px solid rgba(191, 219, 254, 0.35);
+    padding: 0.05em 0.25em;
+}
+[data-theme="dark"] .hl-pink {
+    background-color: rgba(251, 207, 232, 0.14);
+    color: #fbcfe8;
+    border-bottom: 2px solid rgba(251, 207, 232, 0.35);
+    padding: 0.05em 0.25em;
+}
+[data-theme="dark"] .hl-green {
+    background-color: rgba(187, 247, 208, 0.14);
+    color: #bbf7d0;
+    border-bottom: 2px solid rgba(187, 247, 208, 0.35);
+    padding: 0.05em 0.25em;
+}
+[data-theme="dark"] .hl-orange {
+    background-color: rgba(253, 186, 116, 0.14);
+    color: #fdba74;
+    border-bottom: 2px solid rgba(253, 186, 116, 0.35);
+    padding: 0.05em 0.25em;
+}
+[data-theme="dark"] .hl-purple {
+    background-color: rgba(196, 181, 253, 0.14);
+    color: #c4b5fd;
+    border-bottom: 2px solid rgba(196, 181, 253, 0.35);
+    padding: 0.05em 0.25em;
+}
+[data-theme="dark"] .hl-red {
+    background-color: rgba(252, 165, 165, 0.14);
+    color: #fca5a5;
+    border-bottom: 2px solid rgba(252, 165, 165, 0.35);
+    padding: 0.05em 0.25em;
+}
+[data-theme="dark"] .hl-cyan {
+    background-color: rgba(165, 243, 252, 0.14);
+    color: #a5f3fc;
+    border-bottom: 2px solid rgba(165, 243, 252, 0.35);
+    padding: 0.05em 0.25em;
+}
+[data-theme="dark"] .hl-gray {
+    background-color: rgba(229, 231, 235, 0.12);
+    color: #e5e7eb;
+    border-bottom: 2px solid rgba(229, 231, 235, 0.3);
+    padding: 0.05em 0.25em;
+}
+
+/* Retro theme: Vintage CRT multi-color phosphor block highlights (Amber, Cyan, Magenta, Green, Orange, Violet, Red, Cobalt, Grey) */
+[data-theme="retro"] .hl-yellow {
+    background-color: rgba(255, 179, 0, 0.15) !important; /* Amber phosphor glow */
+    color: #ffb300 !important;
+    border: 1px solid rgba(255, 179, 0, 0.3) !important;
+}
+[data-theme="retro"] .hl-blue {
+    background-color: rgba(83, 109, 254, 0.15) !important; /* Cobalt Blue phosphor glow */
+    color: #536dfe !important;
+    border: 1px solid rgba(83, 109, 254, 0.3) !important;
+}
+[data-theme="retro"] .hl-pink {
+    background-color: rgba(255, 0, 255, 0.15) !important; /* Magenta phosphor glow */
+    color: #ff00ff !important;
+    border: 1px solid rgba(255, 0, 255, 0.3) !important;
+}
+[data-theme="retro"] .hl-green {
+    background-color: rgba(118, 185, 0, 0.15) !important; /* Classic green phosphor glow */
+    color: var(--accent-primary) !important;
+    border: 1px solid rgba(118, 185, 0, 0.3) !important;
+}
+[data-theme="retro"] .hl-orange {
+    background-color: rgba(255, 127, 0, 0.15) !important; /* Orange CRT glow */
+    color: #ff7f00 !important;
+    border: 1px solid rgba(255, 127, 0, 0.3) !important;
+}
+[data-theme="retro"] .hl-purple {
+    background-color: rgba(170, 0, 255, 0.15) !important; /* Violet CRT glow */
+    color: #aa00ff !important;
+    border: 1px solid rgba(170, 0, 255, 0.3) !important;
+}
+[data-theme="retro"] .hl-red {
+    background-color: rgba(255, 50, 50, 0.15) !important; /* Red Warning CRT glow */
+    color: #ff3232 !important;
+    border: 1px solid rgba(255, 50, 50, 0.3) !important;
+}
+[data-theme="retro"] .hl-cyan {
+    background-color: rgba(0, 229, 255, 0.15) !important; /* Cyan phosphor glow */
+    color: #00e5ff !important;
+    border: 1px solid rgba(0, 229, 255, 0.3) !important;
+}
+[data-theme="retro"] .hl-gray {
+    background-color: rgba(230, 242, 230, 0.15) !important; /* Vintage white/grey phosphor glow */
+    color: #e6f2e6 !important;
+    border: 1px solid rgba(230, 242, 230, 0.3) !important;
+}
+
+
