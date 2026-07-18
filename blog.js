@@ -1727,9 +1727,11 @@ class BlogSystem {
             const key = line.substring(0, colonIndex).trim();
             let value = line.substring(colonIndex + 1).trim();
 
-            // Parse arrays [item1, item2]
+            // Parse arrays [item1, item2] or comma-separated lists for tags
             if (value.startsWith('[') && value.endsWith(']')) {
                 value = value.slice(1, -1).split(',').map(item => item.trim()).filter(Boolean);
+            } else if (key === 'tags' && value) {
+                value = value.split(',').map(item => item.trim()).filter(Boolean);
             }
             // Parse booleans
             else if (value === 'true') value = true;
@@ -1929,8 +1931,14 @@ class BlogSystem {
             );
         }
 
-        // Sort by date (newest first)
-        filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+        // Sort by featured first, then by date (newest first)
+        filtered.sort((a, b) => {
+            const aFeatured = a.featured === true;
+            const bFeatured = b.featured === true;
+            if (aFeatured && !bFeatured) return -1;
+            if (!aFeatured && bFeatured) return 1;
+            return new Date(b.date) - new Date(a.date);
+        });
 
         return filtered;
     }
@@ -1996,6 +2004,9 @@ class BlogSystem {
             const showTags = this.configManager?.getSiteConfig('blog_show_tags') !== false;
             const card = document.createElement('article');
             card.className = 'blog-card';
+            if (post.featured === true) {
+                card.classList.add('featured');
+            }
             const postHref = buildDetailPath('blog-post', post.id);
             card.onclick = () => window.location.href = postHref;
             card.setAttribute('role', 'link');
@@ -2405,7 +2416,10 @@ class PlaylistSystem {
         const postPreviewHTML = previewPosts.length > 0
             ? `
                 <ol class="playlist-card-posts">
-                    ${previewPosts.map(post => `<li>${escapeHtml(post.title)}</li>`).join('')}
+                    ${previewPosts.map(post => {
+                        const postUrl = buildDetailPath('blog-post', post.id, { playlist: playlist.id });
+                        return `<li><a href="${postUrl}" onclick="event.stopPropagation()">${escapeHtml(post.title)}</a></li>`;
+                    }).join('')}
                 </ol>
             `
             : '<p class="playlist-card-empty">No posts have been added yet.</p>';

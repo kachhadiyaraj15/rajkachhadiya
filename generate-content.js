@@ -1295,9 +1295,11 @@ function parseFrontmatter(content) {
         const key = line.substring(0, colonIndex).trim();
         let value = line.substring(colonIndex + 1).trim();
 
-        // Parse arrays [item1, item2]
+        // Parse arrays [item1, item2] or comma-separated tag lists
         if (value.startsWith('[') && value.endsWith(']')) {
             value = value.slice(1, -1).split(',').map(item => item.trim()).filter(Boolean);
+        } else if (key === 'tags' && value) {
+            value = value.split(',').map(item => item.trim()).filter(Boolean);
         }
         // Parse booleans
         else if (value.toLowerCase() === 'true') value = true;
@@ -1344,8 +1346,14 @@ function generateBlogFiles(renderer) {
         }
     }
 
-    // Sort by date newest first
-    enrichedFiles.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+    // Sort by featured first, then by date newest first
+    enrichedFiles.sort((a, b) => {
+        const aFeatured = a.featured === true;
+        const bFeatured = b.featured === true;
+        if (aFeatured && !bFeatured) return -1;
+        if (!aFeatured && bFeatured) return 1;
+        return new Date(b.date || 0) - new Date(a.date || 0);
+    });
 
     const output = {
         files: enrichedFiles,
